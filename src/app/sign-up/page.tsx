@@ -27,9 +27,9 @@ const Signup = () => {
     email: "",
     password: "",
     confirmpassword: "",
-    gender:"",
-    profession:"",
-    maritalstatus:"",
+    gender: "",
+    profession: "",
+    maritalstatus: "",
   });
 
   const [pending, setPending] = useState(false);
@@ -41,7 +41,7 @@ const Signup = () => {
     // This prevents the default form submission behavior, which would cause a page reload.
     e.preventDefault();
     setPending(true);
-console.log(form);
+    console.log(form);
 
     const res = await fetch("/api/auth/sign-up", {
       method: "POST",
@@ -66,7 +66,7 @@ console.log(form);
   };
 
   return (
-    <div className="h-full flex items-center justify-center bg-[#1b0918] min-h-full">
+    <div className="h-full flex items-center justify-center  min-h-full">
       <Card className="md:h-auto w-[80%] sm:w-[420px] p-4 sm:p-8">
         <CardHeader>
           <CardTitle className="text-center">Signup</CardTitle>
@@ -93,98 +93,107 @@ console.log(form);
               onChange={(e) => setForm({ ...form, name: e.target.value })}
               required
             ></Input>
-            
-{/* =============================================== */}
-<div className="flex gap-4 items-center">
-    Gender : 
-        <label className="flex items-center gap-2"> 
-            <Input
-              type="radio"
-              name="gender"
-              disabled={pending}
-              value="male"
-              checked={form.gender === "male"}
-              onChange={(e) => setForm({ ...form, gender: e.target.value })}
-              required
-            ></Input>Male
-        </label>
 
-        <label className="flex items-center gap-2"> 
-            <Input
-              type="radio"
-              name="gender"
-              disabled={pending}
-              value="female"
-              checked={form.gender === "male"}
-              onChange={(e) => setForm({ ...form, gender: e.target.value })}
-              required
-            ></Input>Female
-        </label>
-        </div>
+            {/* =============================================== */}
+            <div className="flex gap-4 items-center">
+              Gender :
+              <label className="flex items-center gap-2">
+                <Input
+                  type="radio"
+                  name="gender"
+                  disabled={pending}
+                  value="male"
+                  checked={form.gender === "male"}
+                  onChange={(e) => setForm({ ...form, gender: e.target.value })}
+                  required
+                ></Input>
+                Male
+              </label>
+              <label className="flex items-center gap-2">
+                <Input
+                  type="radio"
+                  name="gender"
+                  disabled={pending}
+                  value="female"
+                  checked={form.gender === "female"}
+                  onChange={(e) => setForm({ ...form, gender: e.target.value })}
+                  required
+                ></Input>
+                Female
+              </label>
+            </div>
 
-            
-{/* ========================================================= */}
+            {/* ========================================================= */}
 
-{/* =============================================== */}
-<div className="flex gap-4 items-center">
-    Profession : 
-        <label className="flex items-center gap-2"> 
-            <Input
-              type="radio"
-              name="profession"
-              disabled={pending}
-              value="student"
-              checked={form.profession === "student"}
-              onChange={(e) => setForm({ ...form, profession: e.target.value })}
-              required
-            ></Input>Student
-        </label>
+            {/* =============================================== */}
+            <div className="flex gap-4 items-center">
+              Profession :
+              <label className="flex items-center gap-2">
+                <Input
+                  type="radio"
+                  name="profession"
+                  disabled={pending}
+                  value="student"
+                  checked={form.profession === "student"}
+                  onChange={(e) =>
+                    setForm({ ...form, profession: e.target.value })
+                  }
+                  required
+                ></Input>
+                Student
+              </label>
+              <label className="flex items-center gap-2">
+                <Input
+                  type="radio"
+                  name="profession"
+                  disabled={pending}
+                  value="working"
+                  checked={form.profession === "working"}
+                  onChange={(e) =>
+                    setForm({ ...form, profession: e.target.value })
+                  }
+                  required
+                ></Input>
+                Working
+              </label>
+            </div>
 
-        <label className="flex items-center gap-2"> 
-            <Input
-              type="radio"
-              name="profession"
-              disabled={pending}
-              value="working"
-              checked={form.profession === "working"}
-              onChange={(e) => setForm({ ...form, profession: e.target.value })}
-              required
-            ></Input>Working
-        </label>
-        </div>
+            {/* ========================================================= */}
 
-            
-{/* ========================================================= */}
+            {/* =============================================== */}
+            <div className="flex gap-4 items-center">
+              Marital Status :
+              <label className="flex items-center gap-2">
+                <Input
+                  type="radio"
+                  name="maritalstatus"
+                  disabled={pending}
+                  value="married"
+                  checked={form.maritalstatus === "married"}
+                  onChange={(e) =>
+                    setForm({ ...form, maritalstatus: e.target.value })
+                  }
+                  required
+                ></Input>
+                Married
+              </label>
+              <label className="flex items-center gap-2">
+                <Input
+                  type="radio"
+                  name="maritalstatus"
+                  disabled={pending}
+                  value="single"
+                  checked={form.maritalstatus === "single"}
+                  onChange={(e) =>
+                    setForm({ ...form, maritalstatus: e.target.value })
+                  }
+                  required
+                ></Input>
+                Single
+              </label>
+            </div>
 
-{/* =============================================== */}
-<div className="flex gap-4 items-center">
-    Marital Status :
-        <label className="flex items-center gap-2"> 
-            <Input
-              type="radio"
-              name="maritalstatus"
-              disabled={pending}
-              value="married"
-              checked={form.maritalstatus === "married"}
-              onChange={(e) => setForm({ ...form, maritalstatus: e.target.value })}
-              required
-            ></Input>Married
-        </label>
-
-        <label className="flex items-center gap-2"> 
-            <Input
-              type="radio"
-              name="maritalstatus"
-              disabled={pending}
-              value="single"
-              checked={form.maritalstatus === "single"}
-              onChange={(e) => setForm({ ...form, maritalstatus: e.target.value })}
-              required
-            ></Input>Single
-        </label>
-        </div>
-
-        {/* ========================================================== */}
+            {/* ========================================================== */}
             <Input
               type="email"
               disabled={pending}

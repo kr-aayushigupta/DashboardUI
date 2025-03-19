@@ -28,10 +28,6 @@ const Signin = () => {
   const router = useRouter();
   const [error, setError] = useState("");
 
- 
-
-  
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setPending(true);
@@ -44,7 +40,7 @@ const Signin = () => {
     });
 
     if (res?.ok) {
-      router.push("/welcome");
+      router.push("/dashboard");
       toast.success("login successful");
     } else if (res?.status === 401) {
       setError("Invalid Credentials");
@@ -56,7 +52,7 @@ const Signin = () => {
 
   
   return (
-    <div className="h-full flex items-center justify-center bg-[#1b0918]">
+    <div className="h-full flex items-center justify-center ">
       <Card className="md:h-auto w-[80%] sm:w-[420px] p-4 sm:p-8">
         <CardHeader>
           <CardTitle className="text-center">Login</CardTitle>

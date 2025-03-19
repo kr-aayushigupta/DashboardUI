@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
 // use non-null assertion operator ! it tells ts that something that looks like it coulld be null ,it can trust you that its not null
-const MONGODB_URI=process.env.MONGO!;
-
+const MONGODB_URI=process.env.MONGODB!;
+console.log(MONGODB_URI)
 if(!MONGODB_URI){
     throw new Error ("Please define mongo environment variable")
 }
