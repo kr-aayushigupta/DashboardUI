@@ -29,21 +29,60 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased  bg-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased  bg-black`}
       >
-        
         <AuthProvider>
-          <div className="h-screen">
-            <div className="w-[95%] h-[95%] p-4 m-4 bg-neutral-800 border-2 border-neutral-700 rounded-3xl grid grid-rows-[auto_1fr] grid-cols-[auto_1fr] gap-4">
+          {/* <div className="h-screen bg-neutral-800 ">
+            <div className="w-[95%] h-[95%] p-4 m-4 border-2 border-neutral-700 rounded-3xl grid grid-rows-[auto_1fr] grid-cols-[auto_1fr] gap-4">
               <div className="col-span-2 w-[100%]">
                 <Navbar />
               </div>
+
               <div className="h-[100%]">
                 <Sidebar />
               </div>
 
-              {/* <Container /> */}
               {children}
+            </div>
+          </div> */}
+{/* =============================================================== */}
+          {/* <div className="h-screen bg-neutral-800 flex flex-col">
+           
+            <Navbar />
+
+          
+            <div className="flex flex-1 w-full p-4 gap-4">
+              
+              <div className="w-[15%] h-full">
+                <Sidebar />
+              </div>
+
+            
+              <div className="flex-1">{children}</div>
+            </div>
+          </div> */}
+
+          {/* =============================================== */}
+
+          <div className="h-screen flex justify-center items-center bg-neutral-900 p-4 overflow-hidden" >
+            <div className="w-[95%] h-[95%] p-4 border-2 border-neutral-700 rounded-4xl flex flex-col bg-neutral-800">
+              {/* Navbar */}
+              <div className="px-6 overflow-auto">
+                <Navbar />
+              </div>
+              
+              {/* Main Content Section */}
+              <div className="flex flex-1 w-full p-4 gap-4 overflow-hidden">
+                {/* Sidebar takes 15% */}
+                <div className="w-[10%] h-full overflow-auto ">
+                  <Sidebar />
+                </div>
+                
+                {/* Main Content Area takes remaining space */}
+                <div className="flex-1 overflow-auto">
+                  {children}
+                </div>
+              </div>
             </div>
           </div>
         </AuthProvider>

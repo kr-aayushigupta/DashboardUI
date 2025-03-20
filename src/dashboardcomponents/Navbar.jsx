@@ -16,10 +16,13 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-[95%] h-16 bg-gradient-to-r from-neutral-600 via-neutral-600 to-neutral-700  flex justify-between items-center px-6 m-4 text-gray-300 rounded-4xl sticky top-0">
-      <h1 className="text-xl font-bold">Menu</h1>
+    <div className="w-[95%] h-16 bg-transparent  flex justify-between items-center px-6 m-4 text-gray-300 rounded-4xl ">
+      
+      <h1 className="text-xl font-bold"></h1>
+      
       <div className="flex space-x-4">
         {pathname === "/" && (
+            
           <>
             <button
               onClick={() => handleNavigation("/sign-in")}
@@ -56,7 +59,7 @@ const Navbar = () => {
 
         {pathname === "/dashboard" && session && (
             <>
-              <span className="text-2xl bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-400 to-pink-500">Welcome, {session.user?.name} !</span>
+              <span className="lg:text-2xl md:text-lg sm:text-sm bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-400 to-pink-500">Welcome, {session.user?.name} !</span>
               <button
                 onClick={() => handleNavigation("/")}
                 className=" cursor-pointer bg-gradient-to-r from-purple-500 via-pink-400 to-pink-500 text-white px-4 py-2 rounded-lg font-semibold hover:border-2 hover:border-white"
